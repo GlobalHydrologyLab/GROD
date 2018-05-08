@@ -1,0 +1,45 @@
+---
+title: "1_data_download"
+author: "Matthew Ross"
+date: "5/8/2018"
+output: html_document
+---
+
+```{r setup}
+
+library(tidyverse)
+library(googledrive)
+knitr::opts_knit$set(root.dir='../..')
+
+```
+
+
+#Download the data from google drive
+```{r}
+list.files()
+#Get the folders from GROD_data_ingestion on google drive
+overall.folder <- drive_ls('GROD_data_ingestion')
+
+subfolders <- list()
+
+#Need to extract csv names in a forloop because google only allows one query at a time
+for(i in 1:nrow(overall.folder)) {
+  subfolders[[i]] <- drive_ls(overall.folder$name[i])
+}
+
+csv.names <- do.call('rbind',subfolders)
+#Download the drive data
+
+
+# A case for a for loop, because google only allows you one query at a time
+for(i in 1:nrow(csv.names)) {
+  # Write an if statement to only download new files
+  if(!csv.names$name[i] %in% list.files('2_data_ingestion/data/tmp')){
+    path=paste0('2_data_ingestion/data/tmp/',csv.names$name[i])
+    drive_download(as_id(csv.names$id[i]),
+                   path=path,
+                   overwrite=T)
+  }
+}
+```
+
