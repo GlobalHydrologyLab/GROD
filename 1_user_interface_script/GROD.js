@@ -132,3 +132,32 @@ Export.table.toDrive({
   folder: '',
   fileNamePrefix: 'Dataset',
   fileFormat: 'csv'});
+
+
+//Add in grid cell viz
+//Import fusion table
+var fusionTable = ee.FeatureCollection("ft:1RJiOn0HkkHGui49Pgu6TuiLF7_l2m6-d7IyRggVW")
+//Join fusion table to grid
+var filter = ee.Filter.equals({
+ leftField: 'fxd_ndx',
+ rightField: 'Grid Cell'
+});
+var simpleJoin = ee.Join.saveFirst({
+ matchKey: "test"
+})
+var simpleJoined = simpleJoin.apply(gridFiltered, fusionTable,filter)
+
+var getProp = function (feature){
+ var f2 = ee.Feature(feature.get("test"))
+ var keep = ["Name","Date Completed mm/dd/yy:"]
+ var newFeature = feature.copyProperties(f2, keep)
+ return(newFeature)
+}
+
+var final = simpleJoined.map(getProp).aside(print)
+//select done grid cells
+var notdone = final.filterMetadata("Name", "equals", "")
+var done = final.filterMetadata("Name", "not_equals", "")
+//Plot them!
+Map.addLayer(done, {color:"black"}, "done"),
+Map.addLayer(notdone, {color:"red"}, "not done")
