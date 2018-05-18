@@ -106,35 +106,11 @@ var button_prev = ui.Button({
   }
 });
 
-// 2. mini map
-var bounds = ee.Geometry.Rectangle(Map.getBounds());
-var cp = Map.getCenter().coordinates().getInfo();
-var inset = ui.Map({lon: cp[0], lat: cp[1], zoom: 1});
-inset.clear();
-inset.addLayer(bounds);
-inset.setControlVisibility({all: false});
-inset.setLocked(true);
-Map.onChangeBounds(function(cp, MapObject) {
-  bounds = ee.Geometry.Rectangle(MapObject.getBounds());
-  inset.centerObject(bounds, 4);
-  inset.clear();
-  inset.addLayer(bounds);
-  inset.setControlVisibility({all: false});
-  inset.setLocked(true);
-});
-
-// 3. panels
+// 2. panels
 var panel1 = ui.Panel([button_prev, label_gridId, button_next, jumpToId], ui.Panel.Layout.flow('horizontal'));
 panel1.style().set({
   padding: '0px',
   position: 'bottom-center'
-});
-var panel2 = ui.Panel([inset], ui.Panel.Layout.flow('horizontal'));
-panel2.style().set({
-  padding: '0px',
-  position: 'bottom-right',
-  height: '150px',
-  width: '300px'
 });
 
 // Draw UI
@@ -143,7 +119,6 @@ var i = -1; // initiate i value
 Map.setOptions('satellite');
 Map.addLayer(gridFiltered, {color: 'red'}, 'GRID', false, 0.3);
 Map.add(panel1);
-Map.add(panel2);
 Map.addLayer(hydroBasinNA, {color: 'grey'}, 'hydroBasinNA', false);
 Map.addLayer(GRanD, {color: 'green'}, 'GRanD', false);
 Map.addLayer(hydroLakes, {color: 'cyan'}, 'hydroLakes', false);
