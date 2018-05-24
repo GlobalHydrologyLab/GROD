@@ -18,7 +18,7 @@ After people have used Google Earth Engine and our GROD.js script in the the `1_
 library(tidyverse)
 library(googledrive)
 library(lubridate)
-
+library(listviewer)
 #This chunk sets the directory upstream by two folders. It is here so that the directory 
 # resets to the top level directory for the GROD.Rproj. That way it works if you have your
 # rmd outputs set to inline or in console. 
@@ -36,9 +36,11 @@ overall.folder <- drive_ls('GROD_data_ingestion')
 #Create an empty list to hold these sub folders
 subfolders <- list()
 
+
 #Need to extract csv names in a forloop because google only allows one query at a time
 for(i in 1:nrow(overall.folder)) {
-  subfolders[[i]] <- drive_ls(overall.folder$name[i])
+  subfolders[[i]] <- drive_ls(overall.folder$name[i]) %>%
+    mutate(folder=overall.folder$name[i])
 }
 
 
@@ -59,7 +61,7 @@ csv.names <- do.call('rbind',subfolders) %>%
   #Grab the username
   mutate(user = map_chr(drive_resource,name.extractor)) %>%
   #Group by user and keep only the most recent data save. 
-  group_by(user) %>%
+  group_by(folder) %>%
   mutate(newest_record = max(timestamp)) %>%
   filter(timestamp==newest_record)
 ``` 
@@ -73,14 +75,25 @@ Now that we have filtered the data to a single cumulative file per person we can
 # A case for a for loop, because google only allows you one query at a time
 for(i in 1:nrow(csv.names)) {
   # Write an if statement to only download new files
-  if(!csv.names$name[i] %in% list.files('2_data_ingestion/data/in')){
-    path=paste0('2_data_ingestion/data/in/',csv.names$name[i])
+  if(!csv.names$name[i] %in% list.files('2_data_ingestion/data/tmp')){
+    path=paste0('2_data_ingestion/data/tmp/',csv.names$name[i])
     drive_download(as_id(csv.names$id[i]),
                    path=path,
                    overwrite=T)
   }
 }
 
-
 ```
+
+
+## Bind that data together and export. 
+```{r}
+full.files <- list.files('2_data_ingestion/data/tmp',pattern='csv',full.names=T)
+
+all_found_dams <- map_df(full.files,read_csv)
+
+save(all_found_dams,file='2_data_ingestion/data/out/raw_found_dams.RData')
+```
+
+
 
