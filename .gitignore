@@ -1,8 +1,9 @@
+*.Rproj.user
+*.Rhistory
+*.RData
+*.Ruserdata
+*.csv
+*.shp
+*.feather
+*.httr-oauth
 .Rproj.user
-.Rhistory
-.RData
-.Ruserdata
-.csv
-.shp
-.feather
-.httr-oauth
