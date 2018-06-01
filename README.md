@@ -1,7 +1,7 @@
 ---
 title: "GROD Tutorial"
 output:
-  github_document:
+  html_document:
     toc: true
     toc_depth: 3
 ---
