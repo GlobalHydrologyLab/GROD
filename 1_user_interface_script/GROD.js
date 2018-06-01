@@ -43,6 +43,10 @@ var mergeCollection = function() {
   Partial_Dams_lt50 = Partial_Dams_lt50.map(function(f) {
     return f.set({class: 'Partial_Dams_lt50'});
   });
+  
+  Low_Permeable_Dams = Low_Permeable_Dams.map(function(f) {
+    return f.set({class: 'Low_Permeable_Dams'});
+  });
 
   Natural_riffles = Natural_riffles.map(function(f) {
     return f.set({class: 'Natural_riffles'});
@@ -52,10 +56,12 @@ var mergeCollection = function() {
     return f.set({class: 'Uncertain'});
   });
 
-  return (Dams.merge(Locks)
+  return (Dams
+  .merge(Locks)
   .merge(Channel_Dams)
   .merge(Partial_Dams_gte50)
   .merge(Partial_Dams_lt50)
+  .merge(Low_Permeable_Dams)
   .merge(Natural_riffles)
   .merge(Uncertain)
   .map(addLatLon));
