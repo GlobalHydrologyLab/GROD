@@ -85,24 +85,24 @@ Many dams will be “low-head” or have a small height difference upstream and 
 knitr::include_graphics("www/images/image10.png")
 ```
 
-```{r, echo=FALSE, fig.cap="Lom Dam 1 Google Street Bridge View", out.width = '100%'}
+```{r, echo=FALSE, fig.cap="Low Dam 1 Google Street Bridge View", out.width = '100%'}
 knitr::include_graphics("www/images/image11.png")
 ```
 
-```{r, echo=FALSE, fig.cap="Lom Dam 2", out.width = '100%'}
+```{r, echo=FALSE, fig.cap="Low Dam 2", out.width = '100%'}
 knitr::include_graphics("www/images/image13.png")
 ```
 
-```{r, echo=FALSE, fig.cap="Lom Dam 3", out.width = '100%'}
+```{r, echo=FALSE, fig.cap="Low Dam 3", out.width = '100%'}
 knitr::include_graphics("www/images/image14.png")
 ```
 
-```{r, echo=FALSE, fig.cap="Lom Dam 4", out.width = '100%'}
+```{r, echo=FALSE, fig.cap="Low Dam 4 with lock feature", out.width = '100%'}
 knitr::include_graphics("www/images/image15.png")
 ```
 
 
-```{r, echo=FALSE, fig.cap="Lom Dam 5 with lock feature", out.width = '100%'}
+```{r, echo=FALSE, fig.cap="Low Dam 5", out.width = '100%'}
 knitr::include_graphics("www/images/perm1.png")
 ```
 
