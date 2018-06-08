@@ -15,6 +15,12 @@ These barriers can vary enormously in their size, volume of water disrupted, and
 
 # Barrier types
 
+Here is a decision tree to help you differentiate between different types of river obstructions. Detailed descriptions of each obstruction type are listed in the next section.
+
+```{r, echo=FALSE, out.width = '100%'}
+knitr::include_graphics("www/images/DamDecisionTree.png")
+```
+
 ## Dams
 Dams should be the most obvious barriers you will encounter. These cover the entire river channel, not allowing any water to pass through except through the dam structure itself. These are strong barriers to both the flow of water and the movement of organisms above and below the dam. Examples below. 
 
@@ -132,7 +138,6 @@ knitr::include_graphics("www/images/riffle1.png")
 ```{r, echo=FALSE, fig.cap="Riffle 2", out.width = '100%'}
 knitr::include_graphics("www/images/riffle2.png")
 ```
-
 
 
 # Set up
