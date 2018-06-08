@@ -1,6 +1,8 @@
 // Created by Xiao Yang (yangxiao@live.unc.edu)
-// Last modified 06//01/2018
+// Last modified 06//08/2018
 
+// Dam categories. Mouse over and convert this part to geometry import 
+// so that they can be selected from the map interface.
 var Dams = /* color: #0b4a8b */ee.FeatureCollection([]),
     Locks = /* color: #d61915 */ee.FeatureCollection([]),
     Channel_Dams = /* color: #ffc60f */ee.FeatureCollection([]),
@@ -11,7 +13,42 @@ var Dams = /* color: #0b4a8b */ee.FeatureCollection([]),
     Uncertain = /* color: #a9a9a9 */ee.FeatureCollection([]);
 
 // Import related datasets
-var GRWL = ee.FeatureCollection("ft:1ziLqbyNShCVvOpUYT6tfOzg9TmNNW6EM2Sj6Awle");
+
+var validationRegions = ee.FeatureCollection("ft:1FJmitei5wBIn0upSUIhJuCBynsMu1wWQDjmqYp5G");
+var GRWL = ee.FeatureCollection("ft:1kGCaQbHNEsh01EqTEGQofPhgw6btykR3QsDmGGlX");
+
+// ui.Buttons
+var Button1 = ui.Button('Region 1', function() {
+  pickRegionByIndex(0);
+});
+var Button2 = ui.Button('Region 2', function() {
+  pickRegionByIndex(1);
+});
+var Button3 = ui.Button('Region 3', function() {
+  pickRegionByIndex(2);
+});
+var Button4 = ui.Button('Region 4', function() {
+  pickRegionByIndex(3);
+});
+
+var regionsPanel = ui.Panel([
+  Button1,
+  Button2,
+  Button3,
+  Button4,
+], ui.Panel.Layout.flow('horizontal'), {'position': 'bottom-center'});
+
+Map.add(regionsPanel);
+
+
+var pickRegionByIndex = function(i) {
+  var currentCell = ee.Feature(validationRegions.toList(1, i).get(0)).geometry();
+  var GRWLfil = GRWL.filterBounds(currentCell).map(function(f) {return(f.intersection(currentCell))});
+  Map.centerObject(currentCell);
+  Map.layers().set(0, ui.Map.Layer(ee.Image(1).mask(ee.Image(1).toByte().paint(ee.FeatureCollection(ee.Feature(currentCell, {})), 0)), {palette: 'black'}, 'GRID_background', true, 0.5));
+  Map.layers().set(1, ui.Map.Layer(GRWLfil, {color: 'yellow'}, 'GRWL', true, 0.7));
+};
+
 
 // Define functions
 var addLatLon = function(f) {
@@ -64,15 +101,11 @@ var mergeCollection = function() {
   .map(addLatLon));
 };
 
-Map.setOptions('satellite');
-var lat = [47.41, 48];
-var lon = [-3.55, 0];
-var currentCell = ee.Geometry.Rectangle([lon[0], lat[0], lon[1], lat[1]], null, false);
-Map.centerObject(currentCell);
-Map.addLayer(ee.Image(1).mask(ee.Image(1).toByte().paint(ee.FeatureCollection(ee.Feature(currentCell, {})), 0)), {palette: 'black'}, 'GRID_background', true, 0.5);
-Map.addLayer(GRWL.map(function(f) {return(f.intersection(currentCell))}), {color: 'yellow'}, 'GRWL', true, 0.7);
 
 // Program starts
+Map.setOptions('satellite');
+
+// export the data
 var merged = mergeCollection();
 Export.table.toDrive({
   collection: merged,
