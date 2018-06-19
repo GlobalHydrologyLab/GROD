@@ -21,7 +21,7 @@ These barriers can vary enormously in their size, volume of water disrupted, and
 
 2. Set up a shareable Google Drive Folder
      a. Using your Google account (the same one you made your Google Earth Engine account with), open up your [Google drive](https://drive.google.com/drive/my-drive) and make a new folder in your drive to store data from the project. Please include your name in the name of the folder, ex. ‘BobJoeDamData’
-     b. Once the folder is created, please share it with the group. To do this, you can right click on the folder and click ‘share.’ Next, click ‘get shareable link’ in the top right corner, and set link sharing to ‘Anyone with the link can edit.’ Lastly, click ‘copy link,’ and paste the link in this [Google Sheets document](https://docs.google.com/spreadsheets/d/1V0gvGqpq4IyfzihJSJgdDur_GBUynXaQ2hC8YrgKIuc/edit#gid=1976410049) alongside your name.
+     b. Once the folder is created, please share it with the group. To do this, you can right click on the folder and click ‘share.’ Next, click ‘get shareable link’ in the top right corner, and set link sharing to ‘Anyone with the link can edit.’ Lastly, click ‘copy link,’ and paste the link in this [Google Sheets document](https://docs.google.com/spreadsheets/d/1J_jvedUA3fDjD4EAYYUe-bmEszaDJWjTzlbqJJN6MXE/edit?usp=sharing) alongside your name.
           
 ```{r, echo=FALSE, out.width = '60%'}
 knitr::include_graphics("www/images/newfolder.png")
