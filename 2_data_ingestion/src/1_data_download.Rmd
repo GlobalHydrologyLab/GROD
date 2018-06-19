@@ -19,6 +19,11 @@ library(tidyverse)
 library(googledrive)
 library(lubridate)
 library(listviewer)
+
+
+
+
+
 #This chunk sets the directory upstream by two folders. It is here so that the directory 
 # resets to the top level directory for the GROD.Rproj. That way it works if you have your
 # rmd outputs set to inline or in console. 
@@ -26,6 +31,20 @@ knitr::opts_knit$set(root.dir='../..')
 
 ```
 
+
+```{r}
+drive_download(as_id('https://docs.google.com/spreadsheets/d/1J_jvedUA3fDjD4EAYYUe-bmEszaDJWjTzlbqJJN6MXE/edit#gid=0'),path='2_data_ingestion/data/validation_records.csv',overwrite=T)
+
+val.sheet <- read_csv('2_data_ingestion/data/validation_records.csv')
+
+
+for(i in 1:nrow(val.sheet)){
+  files <- drive_ls(as_id(val.sheet$Link[i]))
+  for(j in 1:nrow(files)){
+    drive_download(as_id(files$id[j]),path=paste0('2_data_ingestion/data/in/validation/',val.sheet$Name[i],'.csv'),overwrite=T)
+  }
+}
+```
 
 Here we need to use the amazing `googledrive` package to connect to our shared folder `GROD_data_ingestion` which houses all the users contributed data files. We then download information about all these files, so that we can filter them based on the most recent contribution. The way our script works, is that each save is cumulative. Meaning if a user finds 100 dams on a Monday and saves that file, and then goes back and finds 200 more on Tuesday, the Tuesday file will have both Monday and Tuesday data. This way we only need to download one file per user, while having a robust and continuus version and backup control, if a little verbose and space-consuming. These files are tiny so it's not a big deal. 
 
