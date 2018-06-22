@@ -16,6 +16,8 @@ These barriers can vary enormously in their size, volume of water disrupted, and
 
 # **Set up**
 
+0. Complete the validation [tutorial](https://globalhydrologylab.github.io/GROD/validation). Then read this tutorial for the slight variations when doing the full project. 
+
 <span style="color:red"> **If this is your first time opening this tutorial, please first complete the validation tutorial, which can be found here: <https://globalhydrologylab.github.io/GROD/validation>. The validation tutorial will lead you through river obstruction detection in four small areas around the globe and will take approx. 1 hour. Once you have completed the validation tutorial, please proceed to the rest of this tutorial. You do not need to sign up for an additional Google Earth Engine account, so you can skip step 1 in the 'Set up' section.** </span>
 
 1. Sign up for Google Earth Engine: <https://earthengine.google.com/>
