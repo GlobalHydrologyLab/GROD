@@ -17,6 +17,8 @@ These barriers can vary enormously in their size, volume of water disrupted, and
 
 # Set up
 
+Read this tutorial and/or watch this [video](https://youtu.be/QXJf9IAF1z4)
+
 1. Sign up for Google Earth Engine: <https://earthengine.google.com/>
 
 2. Set up a shareable Google Drive Folder
