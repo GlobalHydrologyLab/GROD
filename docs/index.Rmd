@@ -75,6 +75,9 @@ knitr::include_graphics("www/images/start3.png")
 
 4. You will be looking for obstructions one grid cell at a time. To begin from grid cell 0, hit ‘Next cell.’ If you are starting with grid cell other than 0, enter the grid cell number at the bottom of the screen and hit enter on your keyboard.
 
+## Documenting poor quality images and unclear obstruction classifications
+If you come across grid cells with poor data quality (cloudy or low-resolution images) or obstructions that are very hard to classify, please make note of these instances in this [**notes sheet**](https://docs.google.com/spreadsheets/d/1VLT5s0oSkc30aS7L62CVzE7iOdsfFPGac6wycy9AOoQ/edit#gid=543664981). There is one tab for notes regarding challenging obstruction classifications and one tab for IDing grid cells with low quality. 
+
 
 # **Barrier types**
 
@@ -327,7 +330,7 @@ The latest version of the Google Earth Engine script will be posted on the proje
 </center>
 3. After upgrading your script, you should be able to continue your work and your previously collected data should be there on the map. If not, please contact us immediately.
 
-### Useful keyboard shortcuts
+## Useful keyboard shortcuts
 
 ```{r, echo=FALSE, out.width = '40%'}
 knitr::include_graphics("www/images/keyboard1.png")
