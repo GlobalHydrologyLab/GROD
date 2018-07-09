@@ -188,7 +188,7 @@ If you come across grid cells with poor data quality (cloudy or low-resolution i
 Here is a decision tree to help you differentiate between different types of river obstructions. Detailed descriptions of each obstruction type are listed in the next section.
 
 ```{r, echo=FALSE, out.width = '100%'}
-knitr::include_graphics("www/images/DamDecisionTree.png")
+knitr::include_graphics("www/images/DamDecisionTreeUpdated.png")
 ```
 
 ## Multi-channel rivers
