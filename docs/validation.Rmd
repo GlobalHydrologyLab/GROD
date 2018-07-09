@@ -74,7 +74,7 @@ knitr::include_graphics("www/images/StartUpdatedNo5.jpg")
 Here is a decision tree to help you differentiate between different types of river obstructions. Detailed descriptions of each obstruction type are listed in the next section.
 
 ```{r, echo=FALSE, out.width = '100%'}
-knitr::include_graphics("www/images/DamDecisionTreeUpdated.png")
+knitr::include_graphics("www/images/DamDecisionTreeUpdated2.png")
 ```
 
 ## Multi-channel rivers
