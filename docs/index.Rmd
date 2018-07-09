@@ -1,5 +1,5 @@
 ---
-title: "Global River Obstruction Database (GROD) Tutorial"
+title: "Global River Obstructions Database (GROD) Tutorial"
 output:
   html_document:
     toc: true
