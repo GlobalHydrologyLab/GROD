@@ -61,7 +61,24 @@ knitr::include_graphics("www/images/paste.png")
 knitr::include_graphics("www/images/import.png")
 ```
 
-3. Write your name at the top of the script, and hit the ‘Save’ button. This will save a copy of the script to your script repository. Please take note the name of the file you just saved as you will need this to go back and continue your work. Hit ‘Run’ at the center top of your screen.
+3. Write your name at the top of the script and hit the ‘Save’ button. This will direct you to a pop up which will ask you to create your home folder. Write your name or a nickname and then hit 'continue.' 
+
+```{r, echo=FALSE, out.width = '100%'}
+knitr::include_graphics("www/images/StartUpdated.jpg")
+```
+
+
+```{r, echo=FALSE, out.width = '80%'}
+knitr::include_graphics("www/images/CreateHomeFolder.jpg")
+```
+
+4. Next, you will be asked to create a git repository. A git repository allows you to do version control on the project and to share all the project code with other people. Type in the name of the project, and click 'create.'
+
+```{r, echo=FALSE, out.width = '80%'}
+knitr::include_graphics("www/images/CreateGitRepo.jpg")
+```
+
+5. Lastly, you will need to hit 'save' again, and will be asked to name your script.This will save a copy of the script to your script repository. Please take note the name of the file just saved as you will need this to go back and continue your work. Then hit 'Run' to begin working. 
 
 ```{r, echo=FALSE, out.width = '100%'}
 knitr::include_graphics("www/images/StartUpdated.jpg")
@@ -71,7 +88,7 @@ knitr::include_graphics("www/images/StartUpdated.jpg")
 knitr::include_graphics("www/images/StartUpdatedNo5.jpg")
 ```
 
-4. You will be looking for obstructions one grid cell at a time. To begin from grid cell 0, hit ‘Next cell.’ If you are starting with a grid cell other than 0, enter the grid cell number at the bottom of the screen and click next or hit enter on your keyboard.
+6. You will be looking for obstructions one grid cell at a time. To begin from grid cell 0, hit ‘Next cell.’ If you are starting with a grid cell other than 0, enter the grid cell number at the bottom of the screen and click next or hit enter on your keyboard.
 
 
 ```{r, echo=FALSE, out.width = '70%'}
