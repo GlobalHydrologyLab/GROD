@@ -72,8 +72,7 @@ Map.addLayer(dat, {color: 'yellow'}, 'all duplicate pairs');
 
 var groupId = dat.aggregate_array('group_id').getInfo();
 
-var N = groupId.length;
-var instructions = 'Index range: [' + 1 + ', ' + N + ']';
+var instructions = 'Index range: [1, 1216]; \nSayali: [1, 608]\nMike: [609, 1216]';
 
 var layers = Map.layers();
 
