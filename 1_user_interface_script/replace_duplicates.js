@@ -73,6 +73,7 @@ Map.addLayer(dat, {color: 'yellow'}, 'all duplicate pairs');
 var groupId = dat.aggregate_array('group_id').getInfo();
 
 var instructions = 'Index range: [1, 1216]; \nSayali: [1, 608]\nMike: [609, 1216]';
+Map.add(ui.Label(instructions));
 
 var layers = Map.layers();
 
@@ -111,8 +112,6 @@ input.onChange(function(text) {
 });
 
 var controls = ui.Panel([b2, thisIndex, b1, input], ui.Panel.Layout.flow('horizontal'), {position: 'bottom-center'});
-
-print(instructions);
 
 // Program starts
 var merged = mergeCollection();
