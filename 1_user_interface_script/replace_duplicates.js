@@ -105,8 +105,8 @@ b2.onClick(function() {
   thisIndex.setValue(i);
 });
 
-input.onChange(function(i) {
-  i = parseInt(i);
+input.onChange(function(text) {
+  i = parseInt(text);
   mapPointByIndex(i);
   thisIndex.setValue(i);
 });
